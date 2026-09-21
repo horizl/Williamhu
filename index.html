@@ -1,0 +1,2175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>William Hu — A Life in Motion</title>
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Caveat:wght@400;600;700&display=swap">
+<style>
+/* ===== CSS Variables ===== */
+:root {
+  --bg: #FAF6F0;
+  --bg-warm: #F5EDE0;
+  --text: #3D2C1E;
+  --text-light: #6B5544;
+  --text-muted: #9B8572;
+  --accent: #E07A3F;
+  --accent-soft: #F0B88A;
+  --green: #7A9B76;
+  --green-soft: #A8C4A4;
+  --gold: #D4A574;
+  --card: #FFFFFF;
+  --border: #E8DDD0;
+  --shadow: 0 4px 24px rgba(61, 44, 30, 0.08);
+  --shadow-hover: 0 8px 32px rgba(61, 44, 30, 0.14);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Nunito Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ===== Typography ===== */
+h1, h2, h3, h4 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text);
+}
+
+.handwritten {
+  font-family: 'Caveat', cursive;
+  font-weight: 600;
+}
+
+/* ===== Navigation ===== */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 18px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(250, 246, 240, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.nav.scrolled {
+  border-bottom-color: var(--border);
+  padding: 14px 40px;
+}
+
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.nav-logo span { color: var(--accent); }
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-light);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: color 0.2s;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s;
+}
+
+.nav-links a:hover { color: var(--accent); }
+.nav-links a:hover::after { width: 100%; }
+
+/* ===== Hero ===== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 120px 40px 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(224, 122, 63, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -150px;
+  left: -100px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(122, 155, 118, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.hero-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-text .greeting {
+  font-family: 'Caveat', cursive;
+  font-size: 28px;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.hero-text h1 {
+  font-size: clamp(48px, 6vw, 80px);
+  font-weight: 900;
+  margin-bottom: 4px;
+  letter-spacing: -1px;
+}
+
+.hero-chinese-name {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-light);
+  margin-bottom: 14px;
+  letter-spacing: 0.5px;
+}
+
+.hero-text .subtitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-style: italic;
+  color: var(--text-light);
+  margin-bottom: 28px;
+}
+
+.hero-text .intro {
+  font-size: 17px;
+  color: var(--text-light);
+  line-height: 1.8;
+  margin-bottom: 36px;
+  max-width: 480px;
+}
+
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.hero-tag {
+  padding: 8px 18px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-light);
+  box-shadow: var(--shadow);
+}
+
+.hero-tag.music { border-color: var(--accent-soft); color: var(--accent); }
+.hero-tag.sport { border-color: var(--green-soft); color: var(--green); }
+.hero-tag.art { border-color: var(--gold); color: var(--gold); }
+
+.hero-image {
+  position: relative;
+}
+
+.hero-image-frame {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: var(--shadow-hover);
+  transition: transform 0.4s ease;
+}
+
+.hero-image-frame:hover { transform: scale(1.02); }
+
+.hero-image-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.hero-image-note {
+  position: absolute;
+  bottom: -20px;
+  left: -20px;
+  background: var(--card);
+  padding: 14px 22px;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  transform: rotate(-4deg);
+  font-family: 'Caveat', cursive;
+  font-size: 20px;
+  color: var(--accent);
+}
+
+.hero-image-note svg {
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+/* ===== Section Common ===== */
+.section {
+  padding: 100px 40px;
+  position: relative;
+}
+
+.section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.section-label {
+  font-family: 'Caveat', cursive;
+  font-size: 24px;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.section-title {
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.section-desc {
+  font-size: 17px;
+  color: var(--text-light);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ===== About ===== */
+.about {
+  background: var(--bg-warm);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.about-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.about-img {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.about-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s;
+}
+
+.about-img:hover img { transform: scale(1.05); }
+
+.about-img:nth-child(1) { grid-row: span 2; }
+.about-img:nth-child(3) { transform: translateY(24px); }
+
+.about-text h3 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.about-text p {
+  font-size: 16px;
+  color: var(--text-light);
+  margin-bottom: 18px;
+  line-height: 1.85;
+}
+
+.about-quote {
+  margin-top: 32px;
+  padding: 24px 28px;
+  background: var(--card);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 16px 16px 0;
+  box-shadow: var(--shadow);
+}
+
+.about-quote p {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.about-quote .author {
+  font-family: 'Caveat', cursive;
+  font-size: 20px;
+  color: var(--accent);
+}
+
+/* ===== Music Section ===== */
+.music {
+  background: var(--bg);
+}
+
+.music-hero {
+  background: linear-gradient(135deg, #3D2C1E 0%, #5C4030 100%);
+  border-radius: 24px;
+  padding: 56px;
+  color: #FAF6F0;
+  margin-bottom: 48px;
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.music-hero::before {
+  content: '♪';
+  position: absolute;
+  top: -20px;
+  right: 40px;
+  font-size: 200px;
+  color: rgba(224, 122, 63, 0.15);
+  font-family: serif;
+}
+
+.music-hero::after {
+  content: '♫';
+  position: absolute;
+  bottom: -40px;
+  left: 60px;
+  font-size: 160px;
+  color: rgba(212, 165, 116, 0.12);
+  font-family: serif;
+}
+
+.music-hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.music-hero-image {
+  position: relative;
+  z-index: 1;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+.music-hero-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.music-hero-image-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 12px 16px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.7));
+  font-size: 12px;
+  color: rgba(250,246,240,0.8);
+}
+
+.music-hero .section-label { color: var(--accent-soft); }
+
+.music-hero h2 {
+  color: #FAF6F0;
+  font-size: 36px;
+  margin-bottom: 16px;
+}
+
+.music-hero p {
+  font-size: 17px;
+  color: rgba(250, 246, 240, 0.8);
+  line-height: 1.8;
+}
+
+.music-song {
+  margin-top: 32px;
+  padding: 20px 24px;
+  background: rgba(250, 246, 240, 0.08);
+  border-radius: 16px;
+  border: 1px solid rgba(250, 246, 240, 0.15);
+}
+
+.music-song-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-style: italic;
+  color: var(--accent-soft);
+  margin-bottom: 6px;
+}
+
+.music-song-meta {
+  font-size: 14px;
+  color: rgba(250, 246, 240, 0.6);
+}
+
+.music-song-privacy {
+  font-size: 12px;
+  color: rgba(250, 246, 240, 0.4);
+  margin-top: 6px;
+  font-style: italic;
+}
+
+.music-lyrics {
+  margin: 48px 0;
+  background: var(--card);
+  border-radius: 24px;
+  padding: 56px 60px;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.music-lyrics::before {
+  content: '"';
+  position: absolute;
+  top: -20px;
+  left: 30px;
+  font-family: 'Playfair Display', serif;
+  font-size: 140px;
+  color: var(--accent-soft);
+  opacity: 0.3;
+  line-height: 1;
+}
+
+.lyrics-header {
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.lyrics-header .section-label { margin-bottom: 6px; }
+
+.lyrics-header h3 {
+  font-size: 26px;
+  font-style: italic;
+  color: var(--text);
+}
+
+.lyrics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px 48px;
+  position: relative;
+  z-index: 1;
+}
+
+.lyric-block {
+  padding: 20px 24px;
+  border-left: 3px solid var(--accent-soft);
+  background: var(--bg);
+  border-radius: 0 12px 12px 0;
+}
+
+.lyric-tag {
+  display: inline-block;
+  font-family: 'Caveat', cursive;
+  font-size: 16px;
+  color: var(--accent);
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+.lyric-block p {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1.9;
+  color: var(--text-light);
+  margin: 0;
+}
+
+.lyrics-intro {
+  margin: 0 0 32px;
+  padding: 20px 28px;
+  background: linear-gradient(135deg, rgba(224, 122, 63, 0.06), rgba(212, 165, 116, 0.04));
+  border-radius: 12px;
+  border-left: 3px solid var(--gold);
+}
+
+.lyrics-intro p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--text-body);
+  margin: 0;
+}
+
+.lyrics-reflection {
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+  position: relative;
+  z-index: 1;
+}
+
+.lyrics-reflection p {
+  font-size: 15px;
+  color: var(--text-light);
+  line-height: 1.85;
+  margin-bottom: 12px;
+}
+
+.lyrics-reflection p:last-child { margin-bottom: 0; }
+
+.lyrics-reflection .highlight {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.lyrics-duet {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.lyrics-duet img {
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.lyrics-duet img:hover {
+  transform: scale(1.01);
+}
+
+.lyrics-duet p {
+  font-family: 'Caveat', cursive;
+  font-size: 19px;
+  color: var(--text-light);
+  margin-top: 14px;
+  margin-bottom: 0;
+}
+
+.music-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.music-card {
+  background: var(--card);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.music-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+}
+
+.music-card-img {
+  height: 240px;
+  overflow: hidden;
+}
+
+.music-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s;
+}
+
+.music-card:hover .music-card-img img { transform: scale(1.06); }
+
+.music-card-body {
+  padding: 24px;
+}
+
+.music-card-body h4 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.music-card-body p {
+  font-size: 14px;
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+.music-card-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(224, 122, 63, 0.1);
+  color: var(--accent);
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+/* ===== Sports Section ===== */
+.sports {
+  background: var(--bg-warm);
+}
+
+.sports-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.sports-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.sports-img {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.sports-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.sports-img:nth-child(1) { grid-row: span 2; }
+.sports-img:nth-child(1) img { height: 100%; }
+
+.sports-content h3 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.sports-content p {
+  font-size: 16px;
+  color: var(--text-light);
+  margin-bottom: 16px;
+  line-height: 1.8;
+}
+
+.sports-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.sport-stat {
+  text-align: center;
+  padding: 20px 12px;
+  background: var(--card);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+.sport-stat-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 900;
+  color: var(--green);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.sport-stat-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.sports-trophy {
+  margin-top: 32px;
+  padding: 20px 24px;
+  background: var(--card);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.sports-trophy-icon {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--gold), #C4956A);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sports-trophy-text h4 {
+  font-size: 16px;
+  margin-bottom: 2px;
+}
+
+.sports-trophy-text p {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* ===== Creative Section ===== */
+.creative {
+  background: var(--bg);
+}
+
+.creative-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.creative-item {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.creative-item:hover { transform: translateY(-4px) rotate(-1deg); }
+
+.creative-item img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.creative-item-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px;
+  background: linear-gradient(transparent, rgba(61, 44, 30, 0.8));
+  color: #FAF6F0;
+  transform: translateY(100%);
+  transition: transform 0.3s;
+}
+
+.creative-item:hover .creative-item-overlay { transform: translateY(0); }
+
+.creative-item-overlay h4 {
+  color: #FAF6F0;
+  font-size: 15px;
+  margin-bottom: 2px;
+}
+
+.creative-item-overlay p {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.creative-note {
+  margin-top: 40px;
+  text-align: center;
+  font-family: 'Caveat', cursive;
+  font-size: 24px;
+  color: var(--text-muted);
+}
+
+/* ===== Kitchen Section ===== */
+.kitchen {
+  background: var(--bg-warm);
+}
+
+.kitchen-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.kitchen-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.kitchen-img {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  aspect-ratio: 1;
+}
+
+.kitchen-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s;
+}
+
+.kitchen-img:hover img { transform: scale(1.05); }
+
+.kitchen-content h3 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.kitchen-content p {
+  font-size: 16px;
+  color: var(--text-light);
+  margin-bottom: 16px;
+  line-height: 1.8;
+}
+
+.kitchen-highlight {
+  margin-top: 28px;
+  padding: 24px;
+  background: var(--card);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid var(--accent);
+}
+
+.kitchen-highlight h4 {
+  font-size: 17px;
+  margin-bottom: 8px;
+  color: var(--accent);
+}
+
+.kitchen-highlight p {
+  font-size: 14px;
+  margin: 0;
+}
+
+/* ===== Community Section ===== */
+.community {
+  background: var(--bg);
+}
+
+.community-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 48px;
+}
+
+.community-image {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.community-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.community-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.community-card {
+  padding: 24px;
+  background: var(--card);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  transition: transform 0.3s;
+}
+
+.community-card:hover { transform: translateX(6px); }
+
+.community-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.community-card-icon.green { background: rgba(122, 155, 118, 0.15); }
+.community-card-icon.orange { background: rgba(224, 122, 63, 0.15); }
+.community-card-icon.gold { background: rgba(212, 165, 116, 0.15); }
+
+.community-card-text h4 {
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.community-card-text p {
+  font-size: 14px;
+  color: var(--text-light);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ===== Summer at JHU ===== */
+.summer-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+  margin-top: 40px;
+}
+
+.summer-content p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--text-body);
+  margin-bottom: 18px;
+}
+
+.summer-certs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 32px;
+}
+
+.summer-cert {
+  text-align: center;
+}
+
+.summer-cert img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.summer-cert img:hover {
+  transform: scale(1.02);
+}
+
+.summer-cert p {
+  font-family: 'Caveat', cursive;
+  font-size: 18px;
+  color: var(--accent);
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.summer-image img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.summer-image img:hover {
+  transform: scale(1.01);
+}
+
+/* ===== Footer ===== */
+.footer {
+  background: linear-gradient(135deg, #3D2C1E 0%, #2A1D13 100%);
+  color: rgba(250, 246, 240, 0.8);
+  padding: 80px 40px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: '♪';
+  position: absolute;
+  top: 20px;
+  right: 60px;
+  font-size: 120px;
+  color: rgba(224, 122, 63, 0.1);
+  font-family: serif;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 60px;
+}
+
+.footer-brand h3 {
+  color: #FAF6F0;
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.footer-brand p {
+  font-size: 15px;
+  line-height: 1.7;
+  max-width: 360px;
+}
+
+.footer-col h4 {
+  color: #FAF6F0;
+  font-size: 16px;
+  margin-bottom: 20px;
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col li {
+  margin-bottom: 10px;
+}
+
+.footer-col a {
+  color: rgba(250, 246, 240, 0.6);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.footer-col a:hover { color: var(--accent-soft); }
+
+.footer-contact p {
+  font-size: 14px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ===== Music Player ===== */
+.music-player {
+  margin: 40px 0;
+  padding: 28px 32px;
+  background: rgba(250, 246, 240, 0.06);
+  border: 1px solid rgba(250, 246, 240, 0.12);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.player-cover {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, var(--accent), var(--gold));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.player-cover.playing::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.2) 50%, transparent 70%);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.player-info {
+  flex: 1;
+}
+
+.player-info h4 {
+  color: #FAF6F0;
+  font-size: 16px;
+  margin-bottom: 2px;
+}
+
+.player-info p {
+  font-size: 13px;
+  color: rgba(250, 246, 240, 0.5);
+  margin: 0;
+}
+
+.player-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.player-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: var(--accent);
+  color: #FAF6F0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.player-btn:hover {
+  transform: scale(1.1);
+  background: #D06A2F;
+}
+
+.player-btn:disabled {
+  background: rgba(250, 246, 240, 0.15);
+  cursor: not-allowed;
+}
+
+.player-progress {
+  flex: 1;
+  height: 6px;
+  background: rgba(250, 246, 240, 0.15);
+  border-radius: 3px;
+  cursor: pointer;
+  position: relative;
+  min-width: 100px;
+}
+
+.player-progress:hover {
+  height: 8px;
+}
+
+.player-progress-bar {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 3px;
+  width: 0%;
+  position: relative;
+  pointer-events: none;
+}
+
+.player-progress-bar::after {
+  content: '';
+  position: absolute;
+  right: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  background: var(--accent);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.player-progress:hover .player-progress-bar::after {
+  opacity: 1;
+}
+
+.player-time {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 12px;
+  color: rgba(250, 246, 240, 0.6);
+  min-width: 40px;
+  text-align: center;
+}
+
+.player-note {
+  text-align: center;
+  font-family: 'Caveat', cursive;
+  font-size: 17px;
+  color: var(--text-light);
+  margin: -24px 0 32px;
+}
+
+.player-duration {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 14px;
+  color: rgba(250, 246, 240, 0.6);
+  min-width: 40px;
+  text-align: right;
+}
+
+.lyrics-player {
+  margin: 24px 0 40px;
+  background: linear-gradient(135deg, #3D2C1E 0%, #5C4030 100%);
+  border: 2px solid var(--accent);
+  box-shadow: 0 4px 20px rgba(224, 122, 63, 0.25);
+}
+
+.lyrics-player .player-info h4 {
+  font-size: 20px;
+  color: var(--accent-soft);
+  font-weight: 700;
+}
+
+.lyrics-player .player-info p {
+  font-size: 14px;
+  color: rgba(250, 246, 240, 0.8);
+}
+
+.player-btn-pulse {
+  animation: pulse 2s infinite;
+}
+
+.player-btn-pulse.playing {
+  animation: none;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(224, 122, 63, 0.5); }
+  70% { box-shadow: 0 0 0 12px rgba(224, 122, 63, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(224, 122, 63, 0); }
+}
+
+.footer-bottom {
+  padding-top: 32px;
+  border-top: 1px solid rgba(250, 246, 240, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: rgba(250, 246, 240, 0.4);
+}
+
+/* ===== Lightbox ===== */
+.lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  cursor: zoom-out;
+}
+
+.lightbox-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.lightbox-overlay img {
+  max-width: 92vw;
+  max-height: 92vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  cursor: default;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  color: rgba(255,255,255,0.8);
+  font-size: 36px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.lightbox-close:hover { color: #fff; }
+
+.lightbox-hint {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255,255,255,0.5);
+  font-size: 13px;
+}
+
+/* Clickable images */
+.hero-image-frame img,
+.about-img img,
+.music-card-img img,
+.music-hero-image img,
+.creative-item img,
+.kitchen-img img,
+.community-image img,
+.sports-img img {
+  cursor: zoom-in;
+}
+
+/* ===== Scroll Animations ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 968px) {
+  .nav-links { display: none; }
+  .hero-content { grid-template-columns: 1fr; gap: 48px; text-align: center; }
+  .hero-text .intro { margin: 0 auto 36px; }
+  .hero-tags { justify-content: center; }
+  .hero-image { max-width: 400px; margin: 0 auto; }
+  .about-grid, .sports-layout, .kitchen-layout, .community-grid { grid-template-columns: 1fr; }
+  .music-gallery { grid-template-columns: 1fr; }
+  .lyrics-grid { grid-template-columns: 1fr; }
+  .music-lyrics { padding: 40px 28px; }
+  .creative-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-top { grid-template-columns: 1fr; gap: 40px; }
+  .music-hero { padding: 40px 28px; grid-template-columns: 1fr; gap: 32px; }
+  .section { padding: 70px 24px; }
+  .hero { padding: 100px 24px 60px; }
+}
+
+@media (max-width: 560px) {
+  .creative-grid { grid-template-columns: 1fr; }
+  .sports-stats { grid-template-columns: 1fr; }
+  .summer-layout { grid-template-columns: 1fr; }
+  .summer-certs { grid-template-columns: 1fr; }
+  .music-player { flex-direction: column; text-align: center; }
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== Navigation ===== -->
+<nav class="nav" id="nav">
+  <a href="#" class="nav-logo">William <span>Hu</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#music">Music</a></li>
+    <li><a href="#sports">Sports</a></li>
+    <li><a href="#creative">Creative</a></li>
+    <li><a href="#kitchen">Kitchen</a></li>
+    <li><a href="#summer">Summer</a></li>
+    <li><a href="#community">Community</a></li>
+  </ul>
+</nav>
+
+<!-- ===== Hero ===== -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="greeting">Hello, I'm</div>
+      <h1>William Hu</h1>
+      <div class="hero-chinese-name">Lingfeng Hu &middot; 胡凌枫</div>
+      <p class="subtitle">High School Senior &middot; Mentor College, Canada</p>
+      <p class="intro">
+        A saxophonist, badminton captain, and lifelong maker — someone who believes the best way 
+        to understand life is to create something with your own hands, whether it's a song, 
+        a paper crane, or a plate of mapo tofu.
+      </p>
+      <div class="hero-tags">
+        <span class="hero-tag music">Music &amp; Songwriting</span>
+        <span class="hero-tag sport">Badminton Captain</span>
+        <span class="hero-tag art">Paper Craft &amp; Art</span>
+        <span class="hero-tag">Home Cook</span>
+        <span class="hero-tag">Community Volunteer</span>
+      </div>
+    </div>
+    <div class="hero-image">
+      <div class="hero-image-frame">
+        <img src="images/sbJkB52yRL.jpg" alt="William Hu portrait">
+      </div>
+      <div class="hero-image-note">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+        Music is my language
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== About ===== -->
+<section class="section about" id="about">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-label">Get to know me</div>
+      <h2 class="section-title">A Little About Me</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-images reveal">
+        <div class="about-img">
+          <img src="images/YPpv2S1HZ1.jpg" alt="With my tenor saxophone">
+        </div>
+        <div class="about-img">
+          <img src="images/AT0rNuTrSR.jpg" alt="Badminton mixed doubles">
+        </div>
+        <div class="about-img">
+          <img src="images/quTTbrpU3S.jpg" alt="Origami cranes">
+        </div>
+      </div>
+      <div class="about-text reveal">
+        <h3>Curiosity, Creativity, and Connection</h3>
+        <p>
+          I've spent my high school years at Mentor College in Mississauga, Ontario, where I've learned 
+          that growth happens at the intersection of discipline and curiosity. Music taught me patience — 
+          the kind that comes from showing up to practice even when a piece feels impossible.
+        </p>
+        <p>
+          Off the stage, you'll find me on the badminton court as team captain, in the kitchen experimenting 
+          with recipes, or at a desk folding paper into creatures. I believe that every skill — whether 
+          athletic, artistic, or culinary — is really just another way of paying attention to the world.
+        </p>
+        <p>
+          Most meaningfully, I've used music to connect with people. Through the Memories to Music program, 
+          I helped turn a stranger's life story into an original song. That experience changed how I think 
+          about creativity: it's not about the product, it's about the person on the other side.
+        </p>
+        <div class="about-quote">
+          <p>"The meaning of life is to find your gift. The purpose of life is to give it away."</p>
+          <div class="author">— a quote I try to live by</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Music ===== -->
+<section class="section music" id="music">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-label">Where I find my rhythm</div>
+      <h2 class="section-title">Music &amp; Songwriting</h2>
+      <p class="section-desc">From school jazz band to composing for a cause — music is how I connect.</p>
+    </div>
+
+    <div class="music-hero reveal">
+      <div class="music-hero-content">
+        <div class="section-label">Memories to Music &middot; 2026</div>
+        <h2>Composing "Pursuit of a Journey"</h2>
+        <p>
+          As lead vocalist of a three-piece band, I participated in Mentor College's annual Memories to Music 
+          program — an 18-year tradition pairing high school musicians with individuals living with early-stage 
+          Alzheimer's. Over five weeks, my bandmates and I interviewed our senior partner, learned her life story, and 
+          composed an original song reflecting her journey. We performed it live at the year-end concert, and 
+          she wrote us a thank-you letter I'll keep forever.
+        </p>
+        <div class="music-song">
+          <div class="music-song-title">"Pursuit of a Journey"</div>
+          <div class="music-song-meta">Written for our senior partner &middot; Composed &amp; Performed by William Hu, Jacky Chen &amp; Emily Wang</div>
+          <div class="music-song-privacy">Her name and identifying details are withheld to protect her privacy.</div>
+        </div>
+      </div>
+      <div class="music-hero-image">
+        <img src="images/cmpMCqdVVc.png" alt="Memories to Music - The Story">
+        <div class="music-hero-image-caption">Founded in 2009 &middot; Pairing students with seniors through song</div>
+      </div>
+    </div>
+
+    <!-- ===== Lyrics Section ===== -->
+    <div class="music-lyrics reveal">
+      <div class="lyrics-header">
+        <div class="section-label">Excerpts from the song &middot; Full recording is 4:30</div>
+        <h3>"Pursuit of a Journey"</h3>
+      </div>
+
+      <!-- Music Player -->
+      <div class="music-player lyrics-player">
+        <audio id="bgmAudio" loop preload="metadata">
+          <source src="audio/zfREEKjKp4.mp3" type="audio/mpeg">
+        </audio>
+        <div class="player-cover" id="playerCover">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FAF6F0" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+        </div>
+        <div class="player-info">
+          <h4>Play the song</h4>
+          <p>Original composition &middot; Memories to Music 2026</p>
+        </div>
+        <div class="player-controls">
+          <span class="player-time" id="currentTime">0:00</span>
+          <div class="player-progress" id="progressContainer">
+            <div class="player-progress-bar" id="progressBar"></div>
+          </div>
+          <button class="player-btn player-btn-pulse" id="playBtn" title="Play / Pause">
+            <svg id="playIcon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </button>
+          <span class="player-time" id="totalTime">1:14</span>
+        </div>
+      </div>
+      <div class="lyrics-intro reveal">
+        <p>
+          William wrote this song after spending time with a senior partner in the Memories to Music program. 
+          Written from her perspective and performed by William, the song traces a life shaped by courage, 
+          reinvention, and love — from leaving everything behind to building a new home, from raising a family 
+          to finding her own voice on stage. The excerpts below capture the song's core message.
+        </p>
+      </div>
+      <div class="lyrics-grid">
+        <div class="lyric-block reveal">
+          <span class="lyric-tag">Hope &amp; Resilience</span>
+          <p>"I always believe in hope<br>
+          And myself as well<br>
+          Working hard is my choice<br>
+          Preparing all the time<br>
+          I keep telling my children<br>
+          Don't rely on luck"</p>
+        </div>
+        <div class="lyric-block reveal">
+          <span class="lyric-tag">Finding Her Voice</span>
+          <p>"So I stand on stage<br>
+          Examine what I learned<br>
+          All I need is attitude<br>
+          I know I can do it well<br>
+          I earned my first trophy<br>
+          And it's my first glory"</p>
+        </div>
+        <div class="lyric-block reveal">
+          <span class="lyric-tag">Music &amp; Memory</span>
+          <p>"We all like music so much<br>
+          Singers and musicians<br>
+          We play all kinds of music<br>
+          And we all learn by ourselves<br>
+          I remember I wrote two songs<br>
+          But the scores are missing now"</p>
+        </div>
+        <div class="lyric-block reveal">
+          <span class="lyric-tag">Belief &amp; Effort</span>
+          <p>"I tell my family<br>
+          To always trust yourself<br>
+          Talent is powerful<br>
+          But striving also counts<br>
+          We all live prosperous days<br>
+          And it's what we called life"</p>
+        </div>
+      </div>
+      <div class="lyrics-reflection">
+        <p>
+          Writing these lines, I realized I wasn't just telling someone else's story — 
+          I was hearing echoes of my own. The line <span class="highlight">"working hard is my choice"</span> 
+          became a mirror: training six hours a week as badminton captain, folding paper until the creases 
+          were right, practicing a sax riff until it felt natural — each is its own small pursuit of a journey.
+        </p>
+        <p>
+          And in the lines about music running in the family, about learning songs by ear and passing them on, 
+          I understood why this project exists. Music isn't just sound — it's how we hold onto memory, 
+          how we share who we are. Her story reminded me that growth isn't about talent alone. 
+          It's about showing up, trusting the process, and passing what you've learned to the people beside you.
+        </p>
+      </div>
+      <div class="lyrics-duet reveal">
+        <img src="images/5gyfA2m0cU.png" alt="Performing the song together with our senior partner">
+        <p>The final performance — singing "Pursuit of a Journey" together with our senior partner, surrounded by family and friends.</p>
+      </div>
+    </div>
+
+    <div class="music-gallery">
+      <div class="music-card reveal">
+        <div class="music-card-img">
+          <img src="images/oLT3kb4Yrl.jpg" alt="With music teacher Ian Hoare">
+        </div>
+        <div class="music-card-body">
+          <span class="music-card-tag">Mentor College</span>
+          <h4>With Mr. Ian Hoare</h4>
+          <p>After the Memories to Music concert with our music director and program co-founder, whose 40 years of teaching built this tradition.</p>
+        </div>
+      </div>
+      <div class="music-card reveal">
+        <div class="music-card-img">
+          <img src="images/EY7Vz4Yxs2.jpg" alt="With the inspiration behind our song">
+        </div>
+        <div class="music-card-body">
+          <span class="music-card-tag">The Star of the Show</span>
+          <h4>Meeting Our Inspiration</h4>
+          <p>With the senior partner who inspired our song. Her resilience — learning a new language, going back to college, raising a family — moved all of us.</p>
+        </div>
+      </div>
+      <div class="music-card reveal">
+        <div class="music-card-img">
+          <img src="images/pzsgYZHrkO.jpg" alt="Thank you letter">
+        </div>
+        <div class="music-card-body">
+          <span class="music-card-tag">April 23, 2026</span>
+          <h4>Her Thank-You Letter</h4>
+          <p>"William — your creativity &amp; effort made this experience so special." A handwritten note from our senior partner that means more than any award.</p>
+        </div>
+      </div>
+      <div class="music-card reveal">
+        <div class="music-card-img">
+          <img src="images/eLcxRPd7AD.jpg" alt="Live performance at Memories to Music concert">
+        </div>
+        <div class="music-card-body">
+          <span class="music-card-tag">Live Performance</span>
+          <h4>On Stage</h4>
+          <p>Performing "Pursuit of a Journey" live at the annual Memories to Music concert, accompanied by guitar, drums, and keyboard in front of family and friends.</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 48px;" class="reveal">
+      <div class="music-card" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0;">
+        <div class="music-card-img" style="height: 300px;">
+          <img src="images/QQM74kTDV7.jpg" alt="Performing with school jazz band">
+        </div>
+        <div class="music-card-body" style="display: flex; flex-direction: column; justify-content: center;">
+          <span class="music-card-tag">School Jazz Band &middot; Grades 9–12</span>
+          <h4 style="font-size: 22px; margin-bottom: 12px;">Self-Taught Saxophonist</h4>
+          <p style="font-size: 15px;">
+            I started with the flute but found it didn't challenge me enough, so I picked up the saxophone 
+            and taught myself the fundamentals in two weeks. I've played with our 20-member school jazz band 
+            ever since, performing at holiday concerts and school events all four years.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Sports ===== -->
+<section class="section sports" id="sports">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-label">On the court</div>
+      <h2 class="section-title">Badminton</h2>
+      <p class="section-desc">Team captain, mixed doubles competitor, and two-time MVP.</p>
+    </div>
+    <div class="sports-layout">
+      <div class="sports-images reveal">
+        <div class="sports-img">
+          <img src="images/fWYze2IGEN.jpg" alt="Badminton match">
+        </div>
+        <div class="sports-img">
+          <img src="images/NF9buvTmM1.jpg" alt="MVP trophies">
+        </div>
+        <div class="sports-img">
+          <img src="images/Ak2gY3yERO.jpg" alt="Badminton team">
+        </div>
+      </div>
+      <div class="sports-content reveal">
+        <h3>Leading by Example</h3>
+        <p>
+          As captain of the Mentor College badminton team, I've helped select players, organize practices, 
+          and compete in mixed doubles at the regional level — placing 5th out of 40 teams at the 2026 
+          Region of Peel tournament.
+        </p>
+        <p>
+          What I love most isn't the winning — it's the split-second decisions, the trust between partners, 
+          and the way a fast-paced rally clears your mind. Training six hours a week taught me that 
+          consistency beats talent when talent doesn't show up.
+        </p>
+        <div class="sports-stats">
+          <div class="sport-stat">
+            <div class="sport-stat-number">5th</div>
+            <div class="sport-stat-label">Peel Region (of 40)</div>
+          </div>
+          <div class="sport-stat">
+            <div class="sport-stat-number">2x</div>
+            <div class="sport-stat-label">Team MVP</div>
+          </div>
+          <div class="sport-stat">
+            <div class="sport-stat-number">6h</div>
+            <div class="sport-stat-label">Weekly Training</div>
+          </div>
+        </div>
+        <div class="sports-trophy">
+          <div class="sports-trophy-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FAF6F0" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+          </div>
+          <div class="sports-trophy-text">
+            <h4>Senior Co-Ed Badminton MVP</h4>
+            <p>Awarded 2024–2025 &amp; 2025–2026 &middot; Mentor College Marauders</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Creative ===== -->
+<section class="section creative" id="creative">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-label">Made by hand</div>
+      <h2 class="section-title">Paper, Paint &amp; Clay</h2>
+      <p class="section-desc">When I'm not making music, I'm making things — folding, drawing, sculpting.</p>
+    </div>
+    <div class="creative-grid">
+      <div class="creative-item reveal">
+        <img src="images/quTTbrpU3S.jpg" alt="Origami cranes">
+        <div class="creative-item-overlay">
+          <h4>Origami Cranes</h4>
+          <p>A rainbow flock, folded one by one</p>
+        </div>
+      </div>
+      <div class="creative-item reveal">
+        <img src="images/8Jjty3CYlA.jpg" alt="Paper monster bookmarks">
+        <div class="creative-item-overlay">
+          <h4>Monster Bookmarks</h4>
+          <p>Hand-folded paper creatures</p>
+        </div>
+      </div>
+      <div class="creative-item reveal">
+        <img src="images/rmEDizlUKK.jpg" alt="Monkey King drawing">
+        <div class="creative-item-overlay">
+          <h4>Sun Wukong</h4>
+          <p>Marker illustration of the Monkey King</p>
+        </div>
+      </div>
+      <div class="creative-item reveal">
+        <img src="images/RYoeV54WCV.jpg" alt="Monkey King painting">
+        <div class="creative-item-overlay">
+          <h4>Also Sun Wukong</h4>
+          <p>Another take on a childhood hero</p>
+        </div>
+      </div>
+      <div class="creative-item reveal">
+        <img src="images/DRctboElHu.jpg" alt="Clay owl">
+        <div class="creative-item-overlay">
+          <h4>Clay Owl</h4>
+          <p>Colorful clay sculpture</p>
+        </div>
+      </div>
+      <div class="creative-item reveal">
+        <img src="images/8ap95UNZBX.jpg" alt="Wooden mechanical violin model">
+        <div class="creative-item-overlay">
+          <h4>Mechanical Violin</h4>
+          <p>Hand-assembled wooden violin with working gears</p>
+        </div>
+      </div>
+      <div class="creative-item reveal">
+        <img src="images/9L55UE1LFV.jpg" alt="Handmade paper carnation">
+        <div class="creative-item-overlay">
+          <h4>Paper Carnation</h4>
+          <p>Hand-cut and layered paper flower</p>
+        </div>
+      </div>
+      <div class="creative-item reveal">
+        <img src="images/ZVZv2Hh5R4.jpg" alt="Beijing Lord Rabbit painting">
+        <div class="creative-item-overlay">
+          <h4>Beijing Lord Rabbit</h4>
+          <p>A traditional Chinese folk deity painting</p>
+        </div>
+      </div>
+    </div>
+    <div class="creative-note reveal">
+      "Every fold is a small decision. Every drawing is a conversation with the paper."
+    </div>
+  </div>
+</section>
+
+<!-- ===== Kitchen ===== -->
+<section class="section kitchen" id="kitchen">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-label">From my kitchen</div>
+      <h2 class="section-title">Cooking &amp; Baking</h2>
+      <p class="section-desc">The kitchen is my laboratory — and my way of feeding the people I care about.</p>
+    </div>
+    <div class="kitchen-layout">
+      <div class="kitchen-content reveal">
+        <h3>Food That Brings People Together</h3>
+        <p>
+          Cooking has been one of my favorite ways to unwind since I was young. In my school's cooking club, 
+          I've baked cookies and cakes, made fresh pasta, and perfected home-style dishes like mapo tofu and 
+          braised pork ribs with potatoes — the kind of food that fills a table and brings people together.
+        </p>
+        <p>
+          The club also gave me a way to give back: we sold baked goods and donated all proceeds to the local 
+          food bank. At home, I cook breakfast for my family every weekend. It's a small ritual, but it's 
+          how I show I care — one plate at a time.
+        </p>
+        <div class="kitchen-highlight">
+          <h4>My Signature Dish</h4>
+          <p>Mapo tofu — silky tofu in a spicy, numbing sauce with ground pork. The trick is in the timing: add the Sichuan peppercorn oil at the very end so the aroma stays bright.</p>
+        </div>
+      </div>
+      <div class="kitchen-images reveal">
+        <div class="kitchen-img">
+          <img src="images/28AgCFUDvl.jpg" alt="Mapo tofu">
+        </div>
+        <div class="kitchen-img">
+          <img src="images/k8mysUBvYS.jpg" alt="Braised pork ribs with potatoes">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Community ===== -->
+<section class="section community" id="community">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-label">Giving back</div>
+      <h2 class="section-title">Community &amp; Service</h2>
+      <p class="section-desc">Small acts, repeated consistently, add up to something real.</p>
+    </div>
+    <div class="community-grid">
+      <div class="community-image reveal">
+        <img src="images/sNu2sQRtY2.jpg" alt="Holiday gift wrapping charity" style="height: 100%; min-height: 400px;">
+      </div>
+      <div class="community-cards">
+        <div class="community-card reveal">
+          <div class="community-card-icon green">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7A9B76" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <div class="community-card-text">
+            <h4>Holiday Gift Wrapping</h4>
+            <p>Volunteered at Square One mall wrapping gifts for Epilepsy South Central Ontario — all proceeds supported local epilepsy programs.</p>
+          </div>
+        </div>
+        <div class="community-card reveal">
+          <div class="community-card-icon orange">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E07A3F" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div class="community-card-text">
+            <h4>Charity Car Wash</h4>
+            <p>Washed cars for teachers and parents at school, donating all proceeds to community causes.</p>
+          </div>
+        </div>
+        <div class="community-card reveal">
+          <div class="community-card-icon gold">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D4A574" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <div class="community-card-text">
+            <h4>CPR &amp; AED Certified</h4>
+            <p>Earned Heartsaver certification from the American Heart Association, equipped to respond in emergency situations — because being prepared is a form of caring.</p>
+          </div>
+        </div>
+        <div class="community-card reveal">
+          <div class="community-card-icon green">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7A9B76" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="community-card-text">
+            <h4>Peer &amp; Family Tutoring</h4>
+            <p>Tutored fellow students in math and English, and helped my younger brother with homework daily. Teaching is the best way to learn.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Summer at JHU ===== -->
+<section class="section summer" id="summer">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-label">Summer 2026 &middot; Baltimore, MD</div>
+      <h2 class="section-title">Summer at Johns Hopkins</h2>
+      <p class="section-desc">Two weeks on a college campus, learning beyond the classroom — and growing into a more independent version of myself.</p>
+    </div>
+    <div class="summer-layout">
+      <div class="summer-content reveal">
+        <p>
+          I spent two weeks at Johns Hopkins University in their pre-college program, living in a dorm, 
+          navigating a new city, and taking classes alongside students from across the country. It was my 
+          first time away from home for an extended period — and I loved every minute of it.
+        </p>
+        <p>
+          Beyond academics, what stayed with me was the sense of responsibility: managing my own schedule, 
+          finding my way around Baltimore, and making decisions on my own. I also earned my CPR &amp; AED 
+          certification while I was there — a skill I hope I'll never need, but one that makes me feel 
+          prepared for whatever comes.
+        </p>
+        <div class="summer-certs">
+          <div class="summer-cert">
+            <img src="images/HXN6MpDZTp.png" alt="Johns Hopkins Summer at Hopkins certificate">
+            <p>Program Completion</p>
+          </div>
+          <div class="summer-cert">
+            <img src="images/sCwU6lIaX0.png" alt="American Heart Association CPR AED certification">
+            <p>CPR &amp; AED Certified</p>
+          </div>
+        </div>
+      </div>
+      <div class="summer-image reveal">
+        <img src="images/QXVqsLFx5S.jpg" alt="At Johns Hopkins University campus">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3>William Hu</h3>
+        <p>
+          High school senior at Mentor College, Mississauga. Musician, athlete, maker, and cook. 
+          This page is a glimpse into the parts of my life that don't show up on a transcript — 
+          but shape who I am.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#about">About Me</a></li>
+          <li><a href="#music">Music</a></li>
+          <li><a href="#sports">Badminton</a></li>
+          <li><a href="#creative">Creative</a></li>
+          <li><a href="#kitchen">Kitchen</a></li>
+          <li><a href="#summer">Summer at JHU</a></li>
+          <li><a href="#community">Community</a></li>
+        </ul>
+      </div>
+      <div class="footer-col footer-contact">
+        <h4>Get in Touch</h4>
+        <p>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          lingfengmentor@163.com
+        </p>
+        <p>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Mississauga, Ontario, Canada
+        </p>
+        <p>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          Mentor College, Class of 2027
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 William Hu. All rights reserved.</span>
+      <span>Made with music, paper, and a lot of practice.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Lightbox -->
+<div class="lightbox-overlay" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose">&times;</button>
+  <img id="lightboxImg" src="" alt="">
+  <div class="lightbox-hint">Click anywhere or press ESC to close</div>
+</div>
+
+<script>
+// ===== Navigation scroll effect =====
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 50) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
+  }
+});
+
+// ===== Scroll reveal animations =====
+const revealElements = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry, index) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.classList.add('visible');
+      }, index * 80);
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+revealElements.forEach(el => revealObserver.observe(el));
+
+// ===== Smooth scroll for nav links =====
+document.querySelectorAll('.nav-links a, .footer-col a').forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const targetId = link.getAttribute('href');
+    const target = document.querySelector(targetId);
+    if (target) {
+      const offsetTop = target.offsetTop - 70;
+      window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+    }
+  });
+});
+
+// ===== Music player =====
+const bgmAudio = document.getElementById('bgmAudio');
+const playBtn = document.getElementById('playBtn');
+const playIcon = document.getElementById('playIcon');
+const playerCover = document.getElementById('playerCover');
+const progressBar = document.getElementById('progressBar');
+const progressContainer = document.getElementById('progressContainer');
+const currentTimeEl = document.getElementById('currentTime');
+const totalTimeEl = document.getElementById('totalTime');
+let isDragging = false;
+
+function formatTime(sec) {
+  const m = Math.floor(sec / 60);
+  const s = Math.floor(sec % 60);
+  return m + ':' + (s < 10 ? '0' : '') + s;
+}
+
+function seekTo(clientX) {
+  const rect = progressContainer.getBoundingClientRect();
+  const percent = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
+  bgmAudio.currentTime = percent * bgmAudio.duration;
+  progressBar.style.width = (percent * 100) + '%';
+  currentTimeEl.textContent = formatTime(bgmAudio.currentTime);
+}
+
+bgmAudio.addEventListener('loadedmetadata', () => {
+  totalTimeEl.textContent = formatTime(bgmAudio.duration);
+});
+
+bgmAudio.addEventListener('timeupdate', () => {
+  if (!isDragging) {
+    const progress = (bgmAudio.currentTime / bgmAudio.duration) * 100;
+    progressBar.style.width = progress + '%';
+    currentTimeEl.textContent = formatTime(bgmAudio.currentTime);
+  }
+});
+
+// Click to seek
+progressContainer.addEventListener('click', (e) => {
+  seekTo(e.clientX);
+});
+
+// Drag to seek (mouse)
+progressContainer.addEventListener('mousedown', (e) => {
+  isDragging = true;
+  seekTo(e.clientX);
+});
+document.addEventListener('mousemove', (e) => {
+  if (isDragging) seekTo(e.clientX);
+});
+document.addEventListener('mouseup', () => {
+  isDragging = false;
+});
+
+// Drag to seek (touch)
+progressContainer.addEventListener('touchstart', (e) => {
+  isDragging = true;
+  seekTo(e.touches[0].clientX);
+});
+document.addEventListener('touchmove', (e) => {
+  if (isDragging) seekTo(e.touches[0].clientX);
+});
+document.addEventListener('touchend', () => {
+  isDragging = false;
+});
+
+playBtn.addEventListener('click', () => {
+  if (bgmAudio.paused) {
+    bgmAudio.play();
+    playerCover.classList.add('playing');
+    playBtn.classList.add('playing');
+    playIcon.innerHTML = '<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>';
+  } else {
+    bgmAudio.pause();
+    playerCover.classList.remove('playing');
+    playBtn.classList.remove('playing');
+    playIcon.innerHTML = '<polygon points="5 3 19 12 5 21 5 3"/>';
+  }
+});
+
+// ===== Lightbox =====
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+const lightboxClose = document.getElementById('lightboxClose');
+
+function openLightbox(src, alt) {
+  lightboxImg.src = src;
+  lightboxImg.alt = alt || '';
+  lightbox.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  lightbox.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// Attach click to all content images
+document.querySelectorAll('.hero-image-frame img, .about-img img, .music-card-img img, .music-hero-image img, .creative-item img, .kitchen-img img, .community-image img, .sports-img img, .summer-cert img, .summer-image img, .lyrics-duet img').forEach(img => {
+  img.addEventListener('click', (e) => {
+    e.stopPropagation();
+    openLightbox(img.src, img.alt);
+  });
+});
+
+lightbox.addEventListener('click', closeLightbox);
+lightboxClose.addEventListener('click', (e) => {
+  e.stopPropagation();
+  closeLightbox();
+});
+lightboxImg.addEventListener('click', (e) => e.stopPropagation());
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+    closeLightbox();
+  }
+});
+</script>
+
+</body>
+</html>
